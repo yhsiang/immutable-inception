@@ -20,4 +20,29 @@ export default fromJS({
       money: 1200,
     },
   }, ],
+  banks: [{
+    id: 0,
+    locate: 'east',
+    assets: {
+      cash: 1000,
+    },
+  }, {
+    id: 1,
+    locate: 'west',
+    assets: {
+      cash: 2000,
+    },
+  }, {
+    id: 2,
+    locate: 'north',
+    assets: {
+      cash: 3000,
+    },
+  }, {
+    id: 3,
+    locate: 'south',
+    assets: {
+      cash: 4000,
+    },
+  }, ],
 });

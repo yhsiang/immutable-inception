@@ -3,7 +3,7 @@ import dummy from './fixtures/dummy';
 import inception from 'src/index';
 
 describe('Inception', () => {
-  it('supports single key path', () => {
+  it('supports single navigator (string) path', () => {
     const exp = dummy.update(
       'users',
       updater => updater.map(item => item.set('age', item.get('age') + 1))
@@ -17,14 +17,15 @@ describe('Inception', () => {
     expect(act.toJS()).toEqual(exp.toJS());
   });
 
-  it('supports single updater path', () => {
-    const exp = dummy
-      .setIn(['users', 1, 'assets', 'money'], 501)
-      .setIn(['users', 2, 'assets', 'money'], 1201);
+  it('supports single filterer (function) path', () => {
+    const exp = dummy.update(
+      'banks',
+      updater => updater.map(item => item.set('marked', true))
+    );
     const act = inception(
       dummy,
-      ['users', item => item.get('age') > 20],
-      item => item.setIn(['assets', 'money'], item.getIn(['assets', 'money']) + 1)
+      [items => items.count() > 3],
+      item => item.set('marked', true)
     );
 
     expect(act.toJS()).toEqual(exp.toJS());
