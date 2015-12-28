@@ -19,5 +19,5 @@ export default fromJS({
     assets: {
       money: 1200,
     },
-  }, ],
+  },],
 });
