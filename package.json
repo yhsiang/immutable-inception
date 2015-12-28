@@ -1,0 +1,27 @@
+{
+  "name": "immutable-inception",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "jsnext:main": "es6/index.js",
+  "files": [
+    "es6",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build",
+    "clean": "nwb clean",
+    "lint": "jscs -v -x src/ tests/",
+    "test": "nwb test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jscs": "^2.7.0",
+    "nwb": "~0.6.0"
+  },
+  "author": "Archie Lee <achi@987.tw>",
+  "homepage": "https://github.com/appier/immutable-inception",
+  "license": "MIT",
+  "repository": "https://github.com/appier/immutable-inception"
+}
