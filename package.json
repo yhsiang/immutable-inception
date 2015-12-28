@@ -12,11 +12,12 @@
   "scripts": {
     "build": "nwb build",
     "clean": "nwb clean",
-    "lint": "jscs -v -x src/ tests/",
+    "lint": "jscs -v -x src/** tests/**",
     "test": "nwb test"
   },
   "dependencies": {},
   "devDependencies": {
+    "immutable": "^3.7.6",
     "jscs": "^2.7.0",
     "nwb": "~0.6.0"
   },

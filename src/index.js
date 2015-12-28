@@ -1,1 +1,4 @@
-export default 'Welcome to immutable-inception';
+
+export default function (data, keyPath, updater) {
+  return data;
+}

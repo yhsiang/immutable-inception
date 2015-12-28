@@ -1,9 +1,19 @@
 import expect from 'expect';
+import dummy from './fixtures/dummy';
+import inception from 'src/index';
 
-import message from 'src/index';
+describe('Inception', () => {
+  it('supports single key path', () => {
+    const exp = dummy.update(
+      'users',
+      updater => updater.map(item => item.set('age', item.get('age') + 1))
+    );
+    const act = inception(
+      dummy,
+      ['users'],
+      item => item.set('age', item.get('age') + 1)
+    );
 
-describe('Module template', () => {
-  it('displays a welcome message', () => {
-    expect(message).toContain('Welcome to immutable-inception');
+    expect(act.toJS()).toEqual(exp.toJS());
   });
 });
