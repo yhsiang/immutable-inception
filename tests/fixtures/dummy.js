@@ -19,7 +19,7 @@ export default fromJS({
     assets: {
       money: 1200,
     },
-  }, ],
+  },],
   banks: [{
     id: 0,
     locate: 'east',
@@ -44,5 +44,5 @@ export default fromJS({
     assets: {
       cash: 4000,
     },
-  }, ],
+  },],
 });
