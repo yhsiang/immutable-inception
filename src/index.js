@@ -15,10 +15,8 @@ export const mapperer = (fn) => {
 }
 
 function inception(data, keyPath, updater) {
-  let keeper = [(f) => f(data)];
-
-  keyPath.push(updater);
-
+	let keeper = [(f) => f(data)];
+	keyPath.push(updater);
 	keyPath.forEach((obj, i) => {
 		if (typeof obj === 'string' || typeof obj === 'number' ) {
 			keeper[i+1] = innerFn => keeper[i](d=>{
@@ -49,13 +47,19 @@ function inception(data, keyPath, updater) {
 			else if(obj.type === 'mapper'){
       	keeper[i+1] = innerFn => {
 					return keeper[i](d=>{
-						return innerFn(obj.fn(d))
+            if(Immutable.Map.isMap(d)){
+								return innerFn(obj.fn(d))
+            }
+            else if(Immutable.List.isList(d)){
+              return d.map(dd=>{
+ 								return innerFn(obj.fn(dd))
+              });
+            }
           })
 				}
 			}
 		}
 	});
-
 	return keeper[keyPath.length](d=>d);
 }
 

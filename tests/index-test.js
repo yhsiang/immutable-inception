@@ -21,7 +21,7 @@ describe('Inception', () => {
     );
     const act = inception(
       dummy,
-      ['users', filterer(() => true)],
+      ['users'],
       mapperer(item => item.set('age', item.get('age') + 1))
     );
 
